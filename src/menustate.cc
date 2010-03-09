@@ -23,14 +23,14 @@
 #include "playstate.h"
 
 // TODO: hardcoded value, do it well :P
-#define MENUSTATE L"/home/neuronal/workspace/netbeans/jod/data/image/tmp_menustate.png"
+//#define MENUSTATE L"/home/neuronal/workspace/netbeans/jod/data/image/tmp_menustate.png"
 
 using namespace jod;
 
 void
 MenuState::init (GameEngine &game)
 {
-	bg.reset (new Image (game.graphics (), MENUSTATE, false));
+	bg.reset (new Image (game.graphics (), game.getPath (MENUSTATE), false));
 	std::cout << "MenuState::init()\n";
 }
 

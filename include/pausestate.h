@@ -24,6 +24,9 @@
 #include <boost/scoped_ptr.hpp>
 #include "gamestate.h"
 
+// TODO: hardcoded value, put it config file
+#define PAUSESTATE "data/image/tmp_pausestate.png"
+
 namespace jod
 {
 

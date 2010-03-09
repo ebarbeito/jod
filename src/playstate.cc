@@ -23,15 +23,12 @@
 #include "menustate.h"
 #include "pausestate.h"
 
-// TODO: hardcoded value, do it well :P
-#define PLAYSTATE L"/home/neuronal/workspace/netbeans/jod/data/image/tmp_playstate.png"
-
 using namespace jod;
 
 void
 PlayState::init (GameEngine &game)
 {
-	bg.reset (new Image (game.graphics (), PLAYSTATE, false));
+	bg.reset (new Image (game.graphics (), game.getPath (PLAYSTATE), false));
 	std::cout << "PlayState::init()\n";
 }
 

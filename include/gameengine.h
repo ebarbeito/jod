@@ -86,6 +86,7 @@ public:
 	void popState (void);
 
 	Graphics & graphics (void);
+	std::wstring getPath (const char *path) const;
 
 private:
 	//! Engine status (off|on)

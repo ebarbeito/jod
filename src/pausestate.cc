@@ -21,15 +21,12 @@
 #include <iostream>
 #include "pausestate.h"
 
-// TODO: hardcoded value, do it well :P
-#define PAUSESTATE L"/home/neuronal/workspace/netbeans/jod/data/image/tmp_pausestate.png"
-
 using namespace jod;
 
 void
 PauseState::init (GameEngine &game)
 {
-	bg.reset (new Image (game.graphics (), PAUSESTATE, false));
+	bg.reset (new Image (game.graphics (), game.getPath (PAUSESTATE), false));
 	std::cout << "PauseState::init()\n";
 }
 

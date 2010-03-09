@@ -24,6 +24,9 @@
 #include <boost/scoped_ptr.hpp>
 #include "gamestate.h"
 
+// TODO: hardcoded value, put it config file
+#define MENUSTATE "data/image/tmp_menustate.png"
+
 namespace jod
 {
 

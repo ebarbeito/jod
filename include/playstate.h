@@ -24,6 +24,9 @@
 #include <boost/scoped_ptr.hpp>
 #include "gamestate.h"
 
+// TODO: hardcoded value, put it config file
+#define PLAYSTATE "data/image/tmp_playstate.png"
+
 namespace jod
 {
 

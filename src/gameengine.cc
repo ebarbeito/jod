@@ -27,7 +27,6 @@ GameEngine::GameEngine (unsigned width, unsigned height,
                         bool fullscreen, double fps, const std::string &title)
 	: Window (width, height, fullscreen, 1000./fps)
 {
-	// how to get std::wstring value from std::string
 	std::wstring wtitle (title.length (), L' ');
 	std::copy (title.begin (), title.end (), wtitle.begin ());
 
@@ -131,4 +130,18 @@ GameEngine::graphics (void)
 {
 	// get the reference that provides basic drawing functionality
 	return Gosu::Window::graphics ();
+}
+
+std::wstring
+GameEngine::getPath (const char *path) const
+{
+	std::wstring result = Gosu::sharedResourcePrefix ();
+
+	if (path != NULL)
+	{
+		std::string aux (path);
+		result += std::wstring (aux.begin(), aux.end());
+	}
+
+	return result;
 }
