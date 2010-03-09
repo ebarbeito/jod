@@ -25,7 +25,7 @@
 #include "gamestate.h"
 
 // TODO: hardcoded value, put it config file
-#define PLAYSTATE "data/image/tmp_playstate.png"
+#define PLAYSTATE "data/image/playstate.png"
 
 namespace jod
 {

@@ -27,11 +27,9 @@ GameEngine::GameEngine (unsigned width, unsigned height,
                         bool fullscreen, double fps, const std::string &title)
 	: Window (width, height, fullscreen, 1000./fps)
 {
-	std::wstring wtitle (title.length (), L' ');
-	std::copy (title.begin (), title.end (), wtitle.begin ());
-
+	std::wstring wtitle (title.begin (), title.end ());
 	Gosu::Window::setCaption (wtitle);
-	
+
 	m_fullscreen = false;
 	m_running = true;
 }
