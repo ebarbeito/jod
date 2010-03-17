@@ -33,6 +33,8 @@ namespace jod
 class PauseState : public GameState, public Singleton< PauseState >
 {
 public:
+	PauseState (void);
+	
 	void init (GameEngine &game);
 	void cleanup (void);
 

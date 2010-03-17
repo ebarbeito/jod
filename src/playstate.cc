@@ -30,6 +30,8 @@ PlayState::PlayState (void)
 	// set background up for the play state
 	GameEngine &game = GameEngine::instance ();
 	m_bg.reset (new Image (game.graphics (), game.getPath (PLAYSTATE), false));
+
+	std::cout << "Created singleton instance for PlayState.\n";
 }
 
 void

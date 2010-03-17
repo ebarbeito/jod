@@ -33,6 +33,8 @@ namespace jod
 class MenuState : public GameState, public Singleton< MenuState >
 {
 public:
+	MenuState (void);
+	
 	void init (GameEngine &game);
 	void cleanup (void);
 

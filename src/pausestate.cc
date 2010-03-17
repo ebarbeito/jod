@@ -23,10 +23,18 @@
 
 using namespace jod;
 
+PauseState::PauseState (void)
+{
+	// set background up for the play state
+	GameEngine &game = GameEngine::instance ();
+	m_bg.reset (new Image (game.graphics (), game.getPath (PAUSESTATE), false));
+
+	std::cout << "Created singleton instance for PauseState.\n";
+}
+
 void
 PauseState::init (GameEngine &game)
 {
-	m_bg.reset (new Image (game.graphics (), game.getPath (PAUSESTATE), false));
 	std::cout << "PauseState::init()\n";
 }
 

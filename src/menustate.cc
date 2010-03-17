@@ -24,10 +24,18 @@
 
 using namespace jod;
 
+MenuState::MenuState (void)
+{
+	// set background up for the play state
+	GameEngine &game = GameEngine::instance ();
+	m_bg.reset (new Image (game.graphics (), game.getPath (MENUSTATE), false));
+
+	std::cout << "Created singleton instance for MenuState.\n";
+}
+
 void
 MenuState::init (GameEngine &game)
 {
-	m_bg.reset (new Image (game.graphics (), game.getPath (MENUSTATE), false));
 	std::cout << "MenuState::init()\n";
 }
 
