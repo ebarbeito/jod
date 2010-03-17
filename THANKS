@@ -1,0 +1,19 @@
+jump or die THANKS file
+
+Several people contributed to jump or die without writing code, may be by inspiring
+me, reporting problems, suggesting improvements or submitting actual code.
+
+Let's thank them here!
+
+* Anthony Lewis (Tony)		http://anthonylewis.com/contact/
+  For his article "Managing Game States in C++" (http://j.mp/1PanG8). The way to
+  handle states in jump or die is based on this text.
+
+* Ed (aka FlukeDude)		ed.s.bentley@gmail.com
+  He made The Impossible Game for Xbox 360. Jump or die is just a clone of this
+  great game, so thanks to him for a great idea and a great game. If you're
+  lucky enough to own an Xbox 360, you could get The Impossible Game from
+  http://j.mp/8GrcgX (highly recommended!)
+
+* Julian Raschke, Jan Lücker and contributors.
+  For the Gosu 2D game development library. http://libgosu.org/

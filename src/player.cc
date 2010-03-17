@@ -18,34 +18,22 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#ifndef _MENUSTATE_H
-#define	_MENUSTATE_H
+#include "player.h"
 
-#include <boost/scoped_ptr.hpp>
-#include "gamestate.h"
+using namespace jod;
 
-// TODO: hardcoded value, put it config file
-#define MENUSTATE "data/image/tmp_menustate.png"
-
-namespace jod
+Player::Player (GameEngine &game)
 {
+	m_bullets = 0;
+	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
+	m_lifes = 3;
+	m_posy = 0;
+	m_score = 0;
+	m_time = 0;
+}
 
-class MenuState : public GameState, public Singleton< MenuState >
+Image *
+Player::getImg (void) const
 {
-public:
-	void init (GameEngine &game);
-	void cleanup (void);
-
-	void update (GameEngine &game);
-	void draw (GameEngine &game);
-
-	void buttonDown (GameEngine &game, Key key);
-
-private:
-	//! Background image
-	boost::scoped_ptr< Image > m_bg;
-};
-
-} // namespace jod
-
-#endif	/* _MENUSTATE_H */
+	return m_img.get ();
+}

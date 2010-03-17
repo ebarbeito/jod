@@ -18,34 +18,23 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#ifndef _MENUSTATE_H
-#define	_MENUSTATE_H
-
-#include <boost/scoped_ptr.hpp>
-#include "gamestate.h"
-
-// TODO: hardcoded value, put it config file
-#define MENUSTATE "data/image/tmp_menustate.png"
+#ifndef _ZORDER_H
+#define	_ZORDER_H
 
 namespace jod
 {
 
-class MenuState : public GameState, public Singleton< MenuState >
+/** \enum jod::zorder_t
+ * Z-ordering for sprite and image drawing. Things drawn with a higher z
+ * position will be drawn over those with a lower one.
+ */
+enum zorder_t
 {
-public:
-	void init (GameEngine &game);
-	void cleanup (void);
-
-	void update (GameEngine &game);
-	void draw (GameEngine &game);
-
-	void buttonDown (GameEngine &game, Key key);
-
-private:
-	//! Background image
-	boost::scoped_ptr< Image > m_bg;
+	BGROUND, //!< z-value for bavkground.
+	PLAYER,  //!< z-value for player sprite
+	HUD      //!< z-value for HUD / part of game's user interface
 };
 
 } // namespace jod
 
-#endif	/* _MENUSTATE_H */
+#endif	/* _ZORDER_H */

@@ -18,34 +18,21 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#ifndef _MENUSTATE_H
-#define	_MENUSTATE_H
-
-#include <boost/scoped_ptr.hpp>
-#include "gamestate.h"
-
-// TODO: hardcoded value, put it config file
-#define MENUSTATE "data/image/tmp_menustate.png"
+#ifndef _GAMESTATE_T_H
+#define	_GAMESTATE_T_H
 
 namespace jod
 {
 
-class MenuState : public GameState, public Singleton< MenuState >
+/** \enum jod::gamestate_t
+ * Users can play two different gamestate modalities.
+ */
+enum gamestate_t
 {
-public:
-	void init (GameEngine &game);
-	void cleanup (void);
-
-	void update (GameEngine &game);
-	void draw (GameEngine &game);
-
-	void buttonDown (GameEngine &game, Key key);
-
-private:
-	//! Background image
-	boost::scoped_ptr< Image > m_bg;
+	CLASSIC, //!< classic mode. Near to The Impossible Game gameplay.
+	ARCADE   //!< arcade mode. Richer gameplay elements.
 };
 
 } // namespace jod
 
-#endif	/* _MENUSTATE_H */
+#endif	/* _GAMESTATE_T_H */

@@ -26,7 +26,7 @@ using namespace jod;
 void
 PauseState::init (GameEngine &game)
 {
-	bg.reset (new Image (game.graphics (), game.getPath (PAUSESTATE), false));
+	m_bg.reset (new Image (game.graphics (), game.getPath (PAUSESTATE), false));
 	std::cout << "PauseState::init()\n";
 }
 
@@ -44,7 +44,7 @@ PauseState::update (GameEngine &game)
 void
 PauseState::draw (GameEngine &game)
 {
-	bg->draw (0, 0, 0);
+	m_bg->draw (0, 0, 0);
 }
 
 void

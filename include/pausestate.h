@@ -43,7 +43,7 @@ public:
 
 private:
 	//! Background image
-	boost::scoped_ptr< Image > bg;
+	boost::scoped_ptr< Image > m_bg;
 };
 
 } // namespace jod

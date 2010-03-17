@@ -32,9 +32,10 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/menustate.o \
-	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/pausestate.o \
 	${OBJECTDIR}/src/playstate.o \
+	${OBJECTDIR}/src/player.o \
+	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/gameengine.o
 
 # C Compiler Flags
@@ -66,11 +67,6 @@ ${OBJECTDIR}/src/menustate.o: nbproject/Makefile-${CND_CONF}.mk src/menustate.cc
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/menustate.o src/menustate.cc
 
-${OBJECTDIR}/src/main.o: nbproject/Makefile-${CND_CONF}.mk src/main.cc 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cc
-
 ${OBJECTDIR}/src/pausestate.o: nbproject/Makefile-${CND_CONF}.mk src/pausestate.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
@@ -80,6 +76,16 @@ ${OBJECTDIR}/src/playstate.o: nbproject/Makefile-${CND_CONF}.mk src/playstate.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/playstate.o src/playstate.cc
+
+${OBJECTDIR}/src/player.o: nbproject/Makefile-${CND_CONF}.mk src/player.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/player.o src/player.cc
+
+${OBJECTDIR}/src/main.o: nbproject/Makefile-${CND_CONF}.mk src/main.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cc
 
 ${OBJECTDIR}/src/gameengine.o: nbproject/Makefile-${CND_CONF}.mk src/gameengine.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

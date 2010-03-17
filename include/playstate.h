@@ -23,6 +23,8 @@
 
 #include <boost/scoped_ptr.hpp>
 #include "gamestate.h"
+#include "gamestate_t.h"
+#include "player.h"
 
 // TODO: hardcoded value, put it config file
 #define PLAYSTATE "data/image/playstate.png"
@@ -33,6 +35,8 @@ namespace jod
 class PlayState : public GameState, public Singleton< PlayState >
 {
 public:
+	PlayState (void);
+	
 	void init (GameEngine &game);
 	void cleanup (void);
 
@@ -43,7 +47,13 @@ public:
 
 private:
 	//! Background image
-	boost::scoped_ptr< Image > bg;
+	boost::scoped_ptr< Image > m_bg;
+
+	//! A single player
+	boost::scoped_ptr< Player > m_player;
+
+	//! Gameplay modality
+	gamestate_t m_type;
 };
 
 } // namespace jod

@@ -18,34 +18,45 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#ifndef _MENUSTATE_H
-#define	_MENUSTATE_H
+#ifndef _PLAYER_H
+#define	_PLAYER_H
 
 #include <boost/scoped_ptr.hpp>
-#include "gamestate.h"
+#include "gameengine.h"
 
 // TODO: hardcoded value, put it config file
-#define MENUSTATE "data/image/tmp_menustate.png"
+#define IMG_PLAYER "data/image/player.png"
 
 namespace jod
 {
 
-class MenuState : public GameState, public Singleton< MenuState >
+class Player
 {
 public:
-	void init (GameEngine &game);
-	void cleanup (void);
+	Player (GameEngine &game);
 
-	void update (GameEngine &game);
-	void draw (GameEngine &game);
-
-	void buttonDown (GameEngine &game, Key key);
+	Image * getImg (void) const;
 
 private:
-	//! Background image
-	boost::scoped_ptr< Image > m_bg;
+	//! Number of avaiable bullets (arcade gameplay)
+	unsigned m_bullets;
+
+	//! Player image
+	boost::scoped_ptr< Image > m_img;
+
+	//! Number of lifes (arcade gameplay)
+	unsigned m_lifes;
+
+	//! Player position in the screen
+	int m_posy;
+
+	//! Current score (arcade gameplay)
+	unsigned m_score;
+
+	//! Current playing time (classic gameplay)
+	unsigned m_time;
 };
 
 } // namespace jod
 
-#endif	/* _MENUSTATE_H */
+#endif	/* _PLAYER_H */

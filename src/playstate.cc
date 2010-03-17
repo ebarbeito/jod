@@ -25,10 +25,19 @@
 
 using namespace jod;
 
+PlayState::PlayState (void)
+{
+	// set background up for the play state
+	GameEngine &game = GameEngine::instance ();
+	m_bg.reset (new Image (game.graphics (), game.getPath (PLAYSTATE), false));
+}
+
 void
 PlayState::init (GameEngine &game)
 {
-	bg.reset (new Image (game.graphics (), game.getPath (PLAYSTATE), false));
+	m_player.reset (new Player (game));
+	m_type = CLASSIC;
+
 	std::cout << "PlayState::init()\n";
 }
 
@@ -46,7 +55,8 @@ PlayState::update (GameEngine &game)
 void
 PlayState::draw (GameEngine &game)
 {
-	bg->draw (0, 0, 0);
+	m_player->getImg ()->draw (0, 0, 1);
+	m_bg->draw (0, 0, 0);
 }
 
 void
