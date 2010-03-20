@@ -18,21 +18,30 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#include "player.h"
+#include "sprite.h"
 
 using namespace jod;
 
-Player::Player (GameEngine &game)
+Image *
+Sprite::getImg (void) const
 {
-	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
-	m_posx = 180;
-	m_posy = 333;
-	m_posz = Z_PLAYER;
+	return m_img.get ();
+}
 
-	// player class attributes
-	m_bullets = 0;
-	m_lifes = 3;
-	m_score = 0;
-	m_time = 0;
+int
+Sprite::posX (void) const
+{
+	return m_posx;
+}
+
+int
+Sprite::posY (void) const
+{
+	return m_posy;
+}
+
+int
+Sprite::posZ (void) const
+{
+	return static_cast< int >(m_posz);
 }

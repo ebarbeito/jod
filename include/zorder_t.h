@@ -30,9 +30,10 @@ namespace jod
  */
 enum zorder_t
 {
-	BGROUND, //!< z-value for bavkground.
-	PLAYER,  //!< z-value for player sprite
-	HUD      //!< z-value for HUD / part of game's user interface
+	Z_BGROUND, //!< z-value for bavkground.
+	Z_PLAYER,  //!< z-value for player sprite
+	Z_ITEM,    //!< z-value for item sprites.
+	Z_HUD      //!< z-value for HUD / part of game's user interface
 };
 
 } // namespace jod

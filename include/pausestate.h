@@ -36,9 +36,11 @@ public:
 	PauseState (void);
 	
 	void init (GameEngine &game);
+
 	void cleanup (void);
 
 	void update (GameEngine &game);
+	
 	void draw (GameEngine &game);
 
 	void buttonDown (GameEngine &game, Key key);

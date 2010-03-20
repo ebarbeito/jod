@@ -18,21 +18,27 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#include "player.h"
+#ifndef _ITEM_T_H
+#define	_ITEM_T_H
 
-using namespace jod;
-
-Player::Player (GameEngine &game)
+namespace jod
 {
-	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
-	m_posx = 180;
-	m_posy = 333;
-	m_posz = Z_PLAYER;
 
-	// player class attributes
-	m_bullets = 0;
-	m_lifes = 3;
-	m_score = 0;
-	m_time = 0;
-}
+/** \enum jod::item_t
+ * Kind of items that could appear in both gameplay modalities.
+ */
+enum item_t
+{
+	NO_ITEM,   //!< Not specified item. Default value for new undefined items.
+	FLOOR_1,   //!< Default, white and thin floor. You can walk on it.
+	FLOOR_2,   //!< Harmful, black and deep floor. You can't walk on it.
+	BLOCK_SQR, //!< Square block. You can walk on it.
+	BLOCK_TRI, //!< Triangular block. You can't touch it.
+	BONUS_CIR, //!< Small circle block. Your score increases if you catch it.
+	BONUS_SQR, //!< Small square block. Your bullets increases if you catch it.
+	BONUS_TRI  //!< Small triangle block. Gravity decrease for a while.
+};
+
+} // namespace jod
+
+#endif	/* _ITEM_T_H */

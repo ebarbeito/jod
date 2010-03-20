@@ -18,21 +18,44 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#include "player.h"
+#ifndef _SPRITE_H
+#define	_SPRITE_H
 
-using namespace jod;
+#include <boost/scoped_ptr.hpp>
+#include "gameengine.h"
+#include "zorder_t.h"
 
-Player::Player (GameEngine &game)
+namespace jod
 {
-	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
-	m_posx = 180;
-	m_posy = 333;
-	m_posz = Z_PLAYER;
 
-	// player class attributes
-	m_bullets = 0;
-	m_lifes = 3;
-	m_score = 0;
-	m_time = 0;
-}
+class Sprite
+{
+public:
+	Image * getImg (void) const;
+	
+	int posX (void) const;
+	
+	int posY (void) const;
+
+	int posZ (void) const;
+
+	void posX (int x) { m_posx = x; }
+	void posY (int y) { m_posy = y; }
+
+protected:
+	//! Player image
+	boost::scoped_ptr< Image > m_img;
+	
+	//! Sprite x-position in the screen.
+	int m_posx;
+
+	//! Sprite y-position in the screen.
+	int m_posy;
+
+	//! Sprite z-position (z-order) in the screen.
+	zorder_t m_posz;
+};
+
+} // namespace jod
+
+#endif	/* _SPRITE_H */

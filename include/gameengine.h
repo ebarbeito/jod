@@ -73,19 +73,25 @@ public:
 	            const std::string &title = NAME);
 
 	void cleanup (void);
+
 	void quit (void);
 
 	void update (void);
+
 	void draw (void);
 
 	Key getKey (Gosu::Button btn);
+
 	void buttonDown (Gosu::Button btn);
 
 	void changeState (GameState &state);
+
 	void pushState (GameState &state);
+
 	void popState (void);
 
 	Graphics & graphics (void);
+	
 	std::wstring getPath (const char *path) const;
 
 private:

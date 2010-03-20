@@ -21,8 +21,8 @@
 #ifndef _PLAYER_H
 #define	_PLAYER_H
 
-#include <boost/scoped_ptr.hpp>
 #include "gameengine.h"
+#include "sprite.h"
 
 // TODO: hardcoded value, put it config file
 #define IMG_PLAYER "data/image/player.png"
@@ -30,25 +30,17 @@
 namespace jod
 {
 
-class Player
+class Player : public Sprite
 {
 public:
 	Player (GameEngine &game);
-
-	Image * getImg (void) const;
 
 private:
 	//! Number of avaiable bullets (arcade gameplay)
 	unsigned m_bullets;
 
-	//! Player image
-	boost::scoped_ptr< Image > m_img;
-
 	//! Number of lifes (arcade gameplay)
 	unsigned m_lifes;
-
-	//! Player position in the screen
-	int m_posy;
 
 	//! Current score (arcade gameplay)
 	unsigned m_score;

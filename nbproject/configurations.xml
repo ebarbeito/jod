@@ -7,26 +7,47 @@
       <itemPath>include/gameengine.h</itemPath>
       <itemPath>include/gamestate.h</itemPath>
       <itemPath>include/gamestate_t.h</itemPath>
+      <itemPath>include/item.h</itemPath>
+      <itemPath>include/item_t.h</itemPath>
+      <itemPath>include/level.h</itemPath>
       <itemPath>include/menustate.h</itemPath>
       <itemPath>include/pausestate.h</itemPath>
       <itemPath>include/player.h</itemPath>
       <itemPath>include/playstate.h</itemPath>
       <itemPath>include/singleton.h</itemPath>
+      <itemPath>include/sprite.h</itemPath>
       <itemPath>include/zorder_t.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <logicalFolder name="data" displayName="data" projectFiles="true">
+        <logicalFolder name="config" displayName="config" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="font" displayName="font" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="image" displayName="image" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="level" displayName="level" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="sound" displayName="sound" projectFiles="true">
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/gameengine.cc</itemPath>
+      <itemPath>src/item.cc</itemPath>
+      <itemPath>src/level.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
       <itemPath>src/menustate.cc</itemPath>
       <itemPath>src/pausestate.cc</itemPath>
       <itemPath>src/player.cc</itemPath>
       <itemPath>src/playstate.cc</itemPath>
+      <itemPath>src/sprite.cc</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -35,6 +56,9 @@
       <itemPath>nbmakefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>data</Elem>
+  </sourceRootList>
   <projectmakefile>nbmakefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">

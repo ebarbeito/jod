@@ -18,21 +18,24 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#include "player.h"
+#include "level.h"
 
 using namespace jod;
 
-Player::Player (GameEngine &game)
+Level::Level (void)
 {
-	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
-	m_posx = 180;
-	m_posy = 333;
-	m_posz = Z_PLAYER;
+	m_id = 1;
+	m_vel = 10.;
+}
 
-	// player class attributes
-	m_bullets = 0;
-	m_lifes = 3;
-	m_score = 0;
-	m_time = 0;
+unsigned
+Level::id (void) const
+{
+	return m_id;
+}
+
+float
+Level::vel (void) const
+{
+	return m_vel;
 }

@@ -22,8 +22,11 @@
 #define	_PLAYSTATE_H
 
 #include <boost/scoped_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 #include "gamestate.h"
 #include "gamestate_t.h"
+#include "item.h"
+#include "level.h"
 #include "player.h"
 
 // TODO: hardcoded value, put it config file
@@ -38,21 +41,29 @@ public:
 	PlayState (void);
 	
 	void init (GameEngine &game);
+
 	void cleanup (void);
 
 	void update (GameEngine &game);
+
 	void draw (GameEngine &game);
 
 	void buttonDown (GameEngine &game, Key key);
 
 private:
-	//! Background image
+	//! Background image.
 	boost::scoped_ptr< Image > m_bg;
 
-	//! A single player
+	//! Dimensional vector for active items.
+	std::vector< boost::shared_ptr< Item > > m_items;
+
+	//! Level information currently playing.
+	boost::scoped_ptr< Level > m_level;
+
+	//! A single player.
 	boost::scoped_ptr< Player > m_player;
 
-	//! Gameplay modality
+	//! Gameplay modality.
 	gamestate_t m_type;
 };
 

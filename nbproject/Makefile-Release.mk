@@ -33,10 +33,13 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/menustate.o \
 	${OBJECTDIR}/src/pausestate.o \
+	${OBJECTDIR}/src/item.o \
 	${OBJECTDIR}/src/playstate.o \
 	${OBJECTDIR}/src/player.o \
 	${OBJECTDIR}/src/main.o \
-	${OBJECTDIR}/src/gameengine.o
+	${OBJECTDIR}/src/level.o \
+	${OBJECTDIR}/src/gameengine.o \
+	${OBJECTDIR}/src/sprite.o
 
 # C Compiler Flags
 CFLAGS=
@@ -72,6 +75,11 @@ ${OBJECTDIR}/src/pausestate.o: nbproject/Makefile-${CND_CONF}.mk src/pausestate.
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/pausestate.o src/pausestate.cc
 
+${OBJECTDIR}/src/item.o: nbproject/Makefile-${CND_CONF}.mk src/item.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/item.o src/item.cc
+
 ${OBJECTDIR}/src/playstate.o: nbproject/Makefile-${CND_CONF}.mk src/playstate.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
@@ -87,10 +95,20 @@ ${OBJECTDIR}/src/main.o: nbproject/Makefile-${CND_CONF}.mk src/main.cc
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cc
 
+${OBJECTDIR}/src/level.o: nbproject/Makefile-${CND_CONF}.mk src/level.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/level.o src/level.cc
+
 ${OBJECTDIR}/src/gameengine.o: nbproject/Makefile-${CND_CONF}.mk src/gameengine.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gameengine.o src/gameengine.cc
+
+${OBJECTDIR}/src/sprite.o: nbproject/Makefile-${CND_CONF}.mk src/sprite.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/sprite.o src/sprite.cc
 
 # Subprojects
 .build-subprojects:

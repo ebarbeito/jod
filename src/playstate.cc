@@ -19,9 +19,12 @@
  */
 
 #include <iostream>
-#include "playstate.h"
+#include <vector>
+#include "item_t.h"
 #include "menustate.h"
 #include "pausestate.h"
+#include "playstate.h"
+#include "level.h"
 
 using namespace jod;
 
@@ -37,7 +40,15 @@ PlayState::PlayState (void)
 void
 PlayState::init (GameEngine &game)
 {
+	// reset active items and player state
+	m_items.clear ();
 	m_player.reset (new Player (game));
+
+	// TODO: temporal stuff
+	m_level.reset (new Level ());
+	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
+	m_items.at(1)->posX(m_items.at(1)->posX () + 60);
 	m_type = CLASSIC;
 
 	std::cout << "PlayState::init()\n";
@@ -52,12 +63,19 @@ PlayState::cleanup (void)
 void
 PlayState::update (GameEngine &game)
 {
+	// TODO: temporal stuff
+	m_items.at (0)->posX(m_items.at (0)->posX () - m_level->vel ());
+	m_items.at (1)->posX(m_items.at (1)->posX () - m_level->vel ());
 }
 
 void
 PlayState::draw (GameEngine &game)
 {
-	m_player->getImg ()->draw (0, 0, 1);
+	m_player->getImg ()->draw (m_player->posX (), m_player->posY (), m_player->posZ ());
+
+	for (std::vector< boost::shared_ptr< Item > >::const_iterator it = m_items.begin (); it != m_items.end (); ++it)
+		(*it)->getImg ()->draw ((*it)->posX (), (*it)->posY (), (*it)->posZ ());
+
 	m_bg->draw (0, 0, 0);
 }
 
