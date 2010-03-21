@@ -31,16 +31,23 @@ namespace jod
 class Sprite
 {
 public:
+	Sprite (int x = 0, int y = 0, int z = 0);
+
 	Image * getImg (void) const;
 	
-	int posX (void) const;
+	int getX (void) const;
 	
-	int posY (void) const;
+	int getY (void) const;
 
-	int posZ (void) const;
+	int getZ (void) const;
 
-	void posX (int x) { m_posx = x; }
-	void posY (int y) { m_posy = y; }
+	void setX (int x);
+	
+	void setY (int y);
+
+	void setZ (int z);
+
+	bool collide (Sprite &obj);
 
 protected:
 	//! Player image

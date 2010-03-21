@@ -31,9 +31,11 @@ class GameState : public Singleton< GameState >
 {
 public:
 	virtual void init (GameEngine &game) = 0;
+	
 	virtual void cleanup (void) = 0;
 
 	virtual void update (GameEngine &game) = 0;
+
 	virtual void draw (GameEngine &game) = 0;
 
 	virtual void buttonDown (GameEngine &game, Key key) = 0;

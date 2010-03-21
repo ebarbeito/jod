@@ -24,9 +24,9 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 #include "gamestate.h"
-#include "gamestate_t.h"
 #include "item.h"
 #include "level.h"
+#include "playstate_t.h"
 #include "player.h"
 
 // TODO: hardcoded value, put it config file
@@ -64,7 +64,7 @@ private:
 	boost::scoped_ptr< Player > m_player;
 
 	//! Gameplay modality.
-	gamestate_t m_type;
+	playstate_t m_type;
 };
 
 } // namespace jod

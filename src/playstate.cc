@@ -48,7 +48,7 @@ PlayState::init (GameEngine &game)
 	m_level.reset (new Level ());
 	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
 	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
-	m_items.at(1)->posX(m_items.at(1)->posX () + 60);
+	m_items.at(1)->setX(m_items.at(1)->getX() + 60);
 	m_type = CLASSIC;
 
 	std::cout << "PlayState::init()\n";
@@ -64,17 +64,21 @@ void
 PlayState::update (GameEngine &game)
 {
 	// TODO: temporal stuff
-	m_items.at (0)->posX(m_items.at (0)->posX () - m_level->vel ());
-	m_items.at (1)->posX(m_items.at (1)->posX () - m_level->vel ());
+	m_items.at (0)->setX(m_items.at (0)->getX () - m_level->getVel ());
+	m_items.at (1)->setX(m_items.at (1)->getX () - m_level->getVel ());
+
+	for (int i = 0; i < m_items.size (); ++i)
+		if (m_items.at(i)->collide (*m_player) == true)
+			std::cout << "colliding with item " << i+1 << std::endl;
 }
 
 void
 PlayState::draw (GameEngine &game)
 {
-	m_player->getImg ()->draw (m_player->posX (), m_player->posY (), m_player->posZ ());
+	m_player->getImg ()->draw (m_player->getX (), m_player->getY (), m_player->getZ ());
 
 	for (std::vector< boost::shared_ptr< Item > >::const_iterator it = m_items.begin (); it != m_items.end (); ++it)
-		(*it)->getImg ()->draw ((*it)->posX (), (*it)->posY (), (*it)->posZ ());
+		(*it)->getImg ()->draw ((*it)->getX (), (*it)->getY (), (*it)->getZ ());
 
 	m_bg->draw (0, 0, 0);
 }

@@ -18,16 +18,16 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
-#ifndef _GAMESTATE_T_H
-#define	_GAMESTATE_T_H
+#ifndef _PLAYSTATE_T_H
+#define	_PLAYSTATE_T_H
 
 namespace jod
 {
 
-/** \enum jod::gamestate_t
- * Users can play two different gamestate modalities.
+/** \enum jod::playstate_t
+ * Users can play two different playstate modalities.
  */
-enum gamestate_t
+enum playstate_t
 {
 	CLASSIC, //!< classic mode. Near to The Impossible Game gameplay.
 	ARCADE   //!< arcade mode. Richer gameplay elements.
@@ -35,4 +35,4 @@ enum gamestate_t
 
 } // namespace jod
 
-#endif	/* _GAMESTATE_T_H */
+#endif	/* _PLAYSTATE_T_H */

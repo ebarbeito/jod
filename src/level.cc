@@ -25,17 +25,17 @@ using namespace jod;
 Level::Level (void)
 {
 	m_id = 1;
-	m_vel = 10.;
+	m_vel = 5.;
 }
 
 unsigned
-Level::id (void) const
+Level::getId (void) const
 {
 	return m_id;
 }
 
 float
-Level::vel (void) const
+Level::getVel (void) const
 {
 	return m_vel;
 }

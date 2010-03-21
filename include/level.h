@@ -29,9 +29,9 @@ class Level
 public:
 	Level (void);
 
-	unsigned id (void) const;
+	unsigned getId (void) const;
 	
-	float vel (void) const;
+	float getVel (void) const;
 
 private:
 	//! Identity number

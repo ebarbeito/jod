@@ -22,6 +22,13 @@
 
 using namespace jod;
 
+Sprite::Sprite (int x, int y, int z)
+{
+	m_posx = x;
+	m_posy = y;
+	setZ (z);
+}
+
 Image *
 Sprite::getImg (void) const
 {
@@ -29,19 +36,51 @@ Sprite::getImg (void) const
 }
 
 int
-Sprite::posX (void) const
+Sprite::getX (void) const
 {
 	return m_posx;
 }
 
 int
-Sprite::posY (void) const
+Sprite::getY (void) const
 {
 	return m_posy;
 }
 
 int
-Sprite::posZ (void) const
+Sprite::getZ (void) const
 {
 	return static_cast< int >(m_posz);
+}
+
+void
+Sprite::setX (int x)
+{
+	m_posx = x;
+}
+
+void
+Sprite::setY (int y)
+{
+	m_posy = y;
+}
+
+void
+Sprite::setZ (int z)
+{
+	switch (z)
+	{
+	case  1 : m_posz = Z_PLAYER;  break;
+	case  2 : m_posz = Z_ITEM;    break;
+	case  3 : m_posz = Z_HUD;     break;
+	default : m_posz = Z_BASE;    break;
+	}
+}
+
+bool
+Sprite::collide (Sprite &obj)
+{
+	// check possible intersection between two boxes
+	return ( (m_posx < obj.m_posx + obj.m_img->width ()) && (obj.m_posx < m_posx + m_img->width ()) &&
+	         (m_posy < obj.m_posy + obj.m_img->height ()) && (m_posy < obj.m_posy + m_img->height ()) );
 }
