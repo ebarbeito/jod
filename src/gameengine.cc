@@ -83,6 +83,7 @@ GameEngine::getKey (Gosu::Button btn)
 	case Gosu::kbReturn : result = kbReturn; break;
 	case Gosu::kbEscape : result = kbEscape; break;
 	case Gosu::kbP      : result = kbP;      break;
+	case Gosu::kbS      : result = kbS;      break;
 	default             : result = noButton; break;
 	}
 

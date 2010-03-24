@@ -21,11 +21,19 @@
 #ifndef _PLAYER_H
 #define	_PLAYER_H
 
-#include "gameengine.h"
 #include "sprite.h"
 
 // TODO: hardcoded value, put it config file
-#define IMG_PLAYER "data/image/player.png"
+#define PLAYER_IMG "data/image/player.png"
+
+//! Initial player x-position
+#define PLAYER_POSX 180
+
+//! Initial player y-position
+#define PLAYER_POSY 333
+
+//! Constant velocity for move upward or downward
+#define PLAYER_VEL 40
 
 namespace jod
 {
@@ -33,11 +41,23 @@ namespace jod
 class Player : public Sprite
 {
 public:
-	Player (GameEngine &game);
+	Player (void);
+
+	bool jumping (void) const;
+
+	void moveUp (void);
+
+	void update (void);
 
 private:
+	//! Player acceleration (may change in arcade mode)
+	float m_accel;
+
 	//! Number of avaiable bullets (arcade gameplay)
 	unsigned m_bullets;
+
+	//! Player is jumping or walking
+	bool m_jumping;
 
 	//! Number of lifes (arcade gameplay)
 	unsigned m_lifes;
@@ -47,6 +67,9 @@ private:
 
 	//! Current playing time (classic gameplay)
 	unsigned m_time;
+
+	//! Player velocity upward or downward
+	float m_vel;
 };
 
 } // namespace jod

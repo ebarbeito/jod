@@ -54,6 +54,7 @@ enum Key
 	kbEscape = Gosu::kbEscape,
 	kbReturn = Gosu::kbReturn,
 	kbP      = Gosu::kbP,
+	kbS      = Gosu::kbS,
 	noButton = Gosu::noButton
 };
 

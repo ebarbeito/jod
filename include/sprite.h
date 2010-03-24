@@ -31,7 +31,7 @@ namespace jod
 class Sprite
 {
 public:
-	Sprite (int x = 0, int y = 0, int z = 0);
+	Sprite (int x = 0, int y = 0, zorder_t z = Z_BASE);
 
 	Image * getImg (void) const;
 	

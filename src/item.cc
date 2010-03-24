@@ -18,34 +18,38 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
+#include <string>
+#include "gameengine.h"
 #include "item.h"
 
 using namespace jod;
 
-Item::Item (GameEngine &game, item_t type)
+Item::Item (int x, int y, zorder_t z, item_t type) : Sprite (x, y, z)
 {
-	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_SQRBLOCK)));
-	m_posx = 600;
-	m_posy = 333;
-	m_posz = Z_ITEM;
-
+	GameEngine &engine = GameEngine::instance ();
+	std::string *img = imgType (type);
+	
 	// item class attributes
 	m_type = type;
+
+	// sprite class attributes
+	m_img.reset (new Image (engine.graphics (), engine.getPath (img->c_str ())));
+
+	// free temp string
+	delete img;
 }
 
-void
-Item::setType (int type)
+std::string *
+Item::imgType (item_t type) const
 {
+	std::string *result;
+
 	switch (type)
 	{
-	case  1 : m_type = FLOOR_1;   break;
-	case  2 : m_type = FLOOR_2;   break;
-	case  3 : m_type = BLOCK_SQR; break;
-	case  4 : m_type = BLOCK_TRI; break;
-	case  5 : m_type = BONUS_CIR; break;
-	case  6 : m_type = BONUS_SQR; break;
-	case  7 : m_type = BONUS_TRI; break;
-	default : m_type = NO_ITEM;   break;
+	case  BLOCK_SQR : result = new std::string (BLOCK_SQR_IMG); break;
+	case  BLOCK_TRI : result = new std::string (BLOCK_TRI_IMG); break;
+	default         : result = NULL;                            break;
 	}
+
+	return result;
 }

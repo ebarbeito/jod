@@ -18,21 +18,62 @@
  * Foundation, Inc., 675 Mass Ave., Cambridge, MA 02139, USA.
  */
 
+#include "gameengine.h"
 #include "player.h"
 
 using namespace jod;
 
-Player::Player (GameEngine &game)
+Player::Player (void)
 {
+	GameEngine &engine = GameEngine::instance ();
+
 	// sprite class attributes
-	m_img.reset (new Image (game.graphics (), game.getPath (IMG_PLAYER)));
-	m_posx = 180;
-	m_posy = 333;
+	m_img.reset (new Image (engine.graphics (), engine.getPath (PLAYER_IMG)));
+	m_posx = PLAYER_POSX;
+	m_posy = PLAYER_POSY;
 	m_posz = Z_PLAYER;
 
 	// player class attributes
+	m_accel = 10.;
 	m_bullets = 0;
+	m_jumping = false;
 	m_lifes = 3;
 	m_score = 0;
 	m_time = 0;
+	m_vel = 0.;
+}
+
+bool
+Player::jumping (void) const
+{
+	return m_jumping;
+}
+
+void
+Player::moveUp (void)
+{
+	// start jumping when it's on the floor
+	if (m_jumping == false)
+	{
+		m_vel = PLAYER_VEL;
+		m_jumping = true;
+	}
+}
+
+void
+Player::update (void)
+{
+	// Move up player when it's jumping
+	if (m_jumping == true)
+	{
+		m_vel -= m_accel;
+		m_posy -= m_vel;
+	}
+
+	// Check to see if Player has hit floor
+	if (m_posy >= PLAYER_POSY)
+	{
+		m_vel = 0.;
+		m_jumping = false;
+	}
 }

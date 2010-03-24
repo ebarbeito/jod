@@ -21,13 +21,12 @@
 #ifndef _ITEM_H
 #define	_ITEM_H
 
-#include "gameengine.h"
 #include "item_t.h"
 #include "sprite.h"
 
 // TODO: hardcoded values, put it config file
-#define IMG_SQRBLOCK "data/image/square.png"
-#define IMG_TRIBLOCK "data/image/triangle.png"
+#define BLOCK_SQR_IMG "data/image/square.png"
+#define BLOCK_TRI_IMG "data/image/triangle.png"
 
 namespace jod
 {
@@ -35,13 +34,13 @@ namespace jod
 class Item : public Sprite
 {
 public:
-	Item (GameEngine &game, item_t type = NO_ITEM);
-
-	void setType (int type);
+	Item (int x, int y, zorder_t z = Z_BASE, item_t type = NO_ITEM);
 
 private:
 	//! Item type that identifies this object.
 	item_t m_type;
+
+	std::string * imgType (item_t type) const;
 };
 
 } // namespace jod

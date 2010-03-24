@@ -22,11 +22,11 @@
 
 using namespace jod;
 
-Sprite::Sprite (int x, int y, int z)
+Sprite::Sprite (int x, int y, zorder_t z)
 {
 	m_posx = x;
 	m_posy = y;
-	setZ (z);
+	m_posz = z;
 }
 
 Image *

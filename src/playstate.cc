@@ -42,13 +42,34 @@ PlayState::init (GameEngine &game)
 {
 	// reset active items and player state
 	m_items.clear ();
-	m_player.reset (new Player (game));
+	m_player.reset (new Player);
 
 	// TODO: temporal stuff
-	m_level.reset (new Level ());
-	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (game, BLOCK_SQR)));
-	m_items.at(1)->setX(m_items.at(1)->getX() + 60);
+	m_level.reset (new Level);
+
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 580, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 660, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 740, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 820, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 900, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 980, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1012, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1044, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1076, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1108, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1140, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1172, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1204, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1236, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1268, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1300, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1332, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1364, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1396, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1428, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1508, 333, Z_ITEM, BLOCK_TRI)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1588, 333, Z_ITEM, BLOCK_TRI)));
+	
 	m_type = CLASSIC;
 
 	std::cout << "PlayState::init()\n";
@@ -64,12 +85,15 @@ void
 PlayState::update (GameEngine &game)
 {
 	// TODO: temporal stuff
-	m_items.at (0)->setX(m_items.at (0)->getX () - m_level->getVel ());
-	m_items.at (1)->setX(m_items.at (1)->getX () - m_level->getVel ());
-
 	for (int i = 0; i < m_items.size (); ++i)
+	{
+		m_items.at (i)->setX(m_items.at (i)->getX () - m_level->getVel ());
+
 		if (m_items.at(i)->collide (*m_player) == true)
 			std::cout << "colliding with item " << i+1 << std::endl;
+	}
+
+	m_player->update ();
 }
 
 void
@@ -80,7 +104,7 @@ PlayState::draw (GameEngine &game)
 	for (std::vector< boost::shared_ptr< Item > >::const_iterator it = m_items.begin (); it != m_items.end (); ++it)
 		(*it)->getImg ()->draw ((*it)->getX (), (*it)->getY (), (*it)->getZ ());
 
-	m_bg->draw (0, 0, 0);
+	m_bg->draw (0, 0, Z_BASE);
 }
 
 void
@@ -88,10 +112,17 @@ PlayState::buttonDown (GameEngine &game, Key key)
 {
 	switch (key)
 	{
+	// when player must jump
+	case kbS:
+		m_player->moveUp ();
+		break;
+
+	// when user wants to pause gameplay
 	case kbP:
 		game.pushState (Singleton< PauseState >::instance ());
 		break;
 
+	// when user wants to exit gameplay / return to menu
 	case kbEscape:
 		game.changeState (Singleton< MenuState >::instance ());
 		break;
