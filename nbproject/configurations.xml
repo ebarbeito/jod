@@ -16,6 +16,7 @@
       <itemPath>include/playstate_t.h</itemPath>
       <itemPath>include/singleton.h</itemPath>
       <itemPath>include/sprite.h</itemPath>
+      <itemPath>include/timer.h</itemPath>
       <itemPath>include/zorder_t.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -48,6 +49,7 @@
       <itemPath>src/player.cc</itemPath>
       <itemPath>src/playstate.cc</itemPath>
       <itemPath>src/sprite.cc</itemPath>
+      <itemPath>src/timer.cc</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -56,8 +58,10 @@
       <itemPath>nbmakefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceFolderFilter>^(nbproject|build)$</sourceFolderFilter>
   <sourceRootList>
     <Elem>data</Elem>
+    <Elem>test</Elem>
   </sourceRootList>
   <projectmakefile>nbmakefile</projectmakefile>
   <confs>

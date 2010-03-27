@@ -31,13 +31,14 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/level.o \
 	${OBJECTDIR}/src/menustate.o \
 	${OBJECTDIR}/src/pausestate.o \
 	${OBJECTDIR}/src/item.o \
 	${OBJECTDIR}/src/playstate.o \
 	${OBJECTDIR}/src/player.o \
 	${OBJECTDIR}/src/main.o \
-	${OBJECTDIR}/src/level.o \
+	${OBJECTDIR}/src/timer.o \
 	${OBJECTDIR}/src/gameengine.o \
 	${OBJECTDIR}/src/sprite.o
 
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 dist/Debug/GNU-Linux-x86/jod: ${OBJECTFILES}
 	${MKDIR} -p dist/Debug/GNU-Linux-x86
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/jod ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/src/level.o: nbproject/Makefile-${CND_CONF}.mk src/level.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -g -Iinclude -I/usr/include/Gosu -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/level.o src/level.cc
 
 ${OBJECTDIR}/src/menustate.o: nbproject/Makefile-${CND_CONF}.mk src/menustate.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -95,10 +101,10 @@ ${OBJECTDIR}/src/main.o: nbproject/Makefile-${CND_CONF}.mk src/main.cc
 	${RM} $@.d
 	$(COMPILE.cc) -g -Iinclude -I/usr/include/Gosu -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cc
 
-${OBJECTDIR}/src/level.o: nbproject/Makefile-${CND_CONF}.mk src/level.cc 
+${OBJECTDIR}/src/timer.o: nbproject/Makefile-${CND_CONF}.mk src/timer.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -I/usr/include/Gosu -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/level.o src/level.cc
+	$(COMPILE.cc) -g -Iinclude -I/usr/include/Gosu -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/timer.o src/timer.cc
 
 ${OBJECTDIR}/src/gameengine.o: nbproject/Makefile-${CND_CONF}.mk src/gameengine.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

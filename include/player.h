@@ -22,6 +22,10 @@
 #define	_PLAYER_H
 
 #include "sprite.h"
+#include "timer.h"
+
+//! Frames per second for player position update
+#define PLAYER_FPS 25
 
 // TODO: hardcoded value, put it config file
 #define PLAYER_IMG "data/image/player.png"
@@ -65,8 +69,8 @@ private:
 	//! Current score (arcade gameplay)
 	unsigned m_score;
 
-	//! Current playing time (classic gameplay)
-	unsigned m_time;
+	//! Internal clock for Player
+	Timer m_timer;
 
 	//! Player velocity upward or downward
 	float m_vel;

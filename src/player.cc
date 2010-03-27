@@ -39,7 +39,7 @@ Player::Player (void)
 	m_jumping = false;
 	m_lifes = 3;
 	m_score = 0;
-	m_time = 0;
+	m_timer.setInterval (1000/PLAYER_FPS);
 	m_vel = 0.;
 }
 
@@ -66,8 +66,12 @@ Player::update (void)
 	// Move up player when it's jumping
 	if (m_jumping == true)
 	{
-		m_vel -= m_accel;
-		m_posy -= m_vel;
+		if (m_timer.timeUp () == true)
+		{
+			m_vel -= m_accel;
+			m_posy -= m_vel;
+			m_timer.update ();
+		}
 	}
 
 	// Check to see if Player has hit floor
