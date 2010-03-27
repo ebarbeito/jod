@@ -31,9 +31,11 @@ namespace jod
 class Sprite
 {
 public:
-	Sprite (int x = 0, int y = 0, zorder_t z = Z_BASE);
+	Sprite (int x = 0, int y = 0, zorder_t z = Z_BASE, double angle = 0);
 
 	Image * getImg (void) const;
+
+	double getAngle (void) const { return m_angle; }
 	
 	int getX (void) const;
 	
@@ -50,6 +52,9 @@ public:
 	bool collide (Sprite &obj);
 
 protected:
+	//! Rotation angle
+	double m_angle;
+
 	//! Player image
 	boost::scoped_ptr< Image > m_img;
 	

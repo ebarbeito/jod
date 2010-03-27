@@ -68,6 +68,7 @@ Player::update (void)
 	{
 		if (m_timer.timeUp () == true)
 		{
+			m_angle += 38.57;
 			m_vel -= m_accel;
 			m_posy -= m_vel;
 			m_timer.update ();

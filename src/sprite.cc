@@ -22,8 +22,9 @@
 
 using namespace jod;
 
-Sprite::Sprite (int x, int y, zorder_t z)
+Sprite::Sprite (int x, int y, zorder_t z, double angle)
 {
+	m_angle = angle;
 	m_posx = x;
 	m_posy = y;
 	m_posz = z;
@@ -80,7 +81,6 @@ Sprite::setZ (int z)
 bool
 Sprite::collide (Sprite &obj)
 {
-	// check possible intersection between two boxes
-	return ( (m_posx < obj.m_posx + obj.m_img->width ()) && (obj.m_posx < m_posx + m_img->width ()) &&
-	         (m_posy < obj.m_posy + obj.m_img->height ()) && (m_posy < obj.m_posy + m_img->height ()) );
+	GameEngine &engine = GameEngine::instance ();
+	return (engine.distance (m_posx, m_posy, obj.m_posx, obj.m_posy) < (m_img->height () + 1));
 }

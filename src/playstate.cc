@@ -52,21 +52,21 @@ PlayState::init (GameEngine &game)
 	m_items.push_back (boost::shared_ptr< Item >(new Item ( 740, 333, Z_ITEM, BLOCK_TRI)));
 	m_items.push_back (boost::shared_ptr< Item >(new Item ( 820, 333, Z_ITEM, BLOCK_TRI)));
 	m_items.push_back (boost::shared_ptr< Item >(new Item ( 900, 333, Z_ITEM, BLOCK_TRI)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item ( 980, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1012, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1044, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1076, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1108, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1140, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1172, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1204, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1236, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1268, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1300, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1332, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1364, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1396, 333, Z_ITEM, BLOCK_SQR)));
-	m_items.push_back (boost::shared_ptr< Item >(new Item (1428, 333, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item ( 980, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1012, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1044, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1076, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1108, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1140, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1172, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1204, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1236, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1268, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1300, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1332, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1364, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1396, 300, Z_ITEM, BLOCK_SQR)));
+	m_items.push_back (boost::shared_ptr< Item >(new Item (1428, 300, Z_ITEM, BLOCK_SQR)));
 	m_items.push_back (boost::shared_ptr< Item >(new Item (1508, 333, Z_ITEM, BLOCK_TRI)));
 	m_items.push_back (boost::shared_ptr< Item >(new Item (1588, 333, Z_ITEM, BLOCK_TRI)));
 	
@@ -99,7 +99,12 @@ PlayState::update (GameEngine &game)
 void
 PlayState::draw (GameEngine &game)
 {
-	m_player->getImg ()->draw (m_player->getX (), m_player->getY (), m_player->getZ ());
+	// (x,y) rotation center
+	double x = m_player->getX () + (m_player->getImg ()->width () / 2);
+	double y = m_player->getY () + (m_player->getImg ()->height () / 2);
+
+	m_player->getImg ()->drawRot (x, y, m_player->getZ (), m_player->getAngle ());
+	//m_player->getImg ()->draw (m_player->getX (), m_player->getY (), m_player->getZ ());
 
 	for (std::vector< boost::shared_ptr< Item > >::const_iterator it = m_items.begin (); it != m_items.end (); ++it)
 		(*it)->getImg ()->draw ((*it)->getX (), (*it)->getY (), (*it)->getZ ());

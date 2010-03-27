@@ -92,7 +92,9 @@ public:
 	void popState (void);
 
 	Graphics & graphics (void);
-	
+
+	double distance (double x1, double y1, double x2, double y2) const;
+
 	std::wstring getPath (const char *path) const;
 
 private:

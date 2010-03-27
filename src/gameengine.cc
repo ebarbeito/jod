@@ -131,6 +131,12 @@ GameEngine::graphics (void)
 	return Gosu::Window::graphics ();
 }
 
+double
+GameEngine::distance (double x1, double y1, double x2, double y2) const
+{
+	return Gosu::distance (x1, y1, x2, y2);
+}
+
 std::wstring
 GameEngine::getPath (const char *path) const
 {
