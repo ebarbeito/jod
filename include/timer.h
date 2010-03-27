@@ -69,9 +69,6 @@ public:
 private:
 	//! Attribute for managing time intervals
 	unsigned m_interval;
-	
-	//! Timer starts at this initial tick
-	unsigned m_startTick;
 
 	//! Last tick saved
 	unsigned m_lastTick;
@@ -81,6 +78,9 @@ private:
 
 	//! Timer could be working or not
 	bool m_running;
+
+	//! Timer starts at this initial tick
+	unsigned m_startTick;
 };
 
 } // namespace jod

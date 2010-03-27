@@ -49,10 +49,11 @@ Timer::operator= (const Timer &src)
 {
 	if (this != &src)
 	{
-		m_startTick = src.m_startTick;
+		m_interval = src.m_interval;
 		m_lastTick = src.m_lastTick;
 		m_pauseTick = src.m_pauseTick;
 		m_running = src.m_running;
+		m_startTick = src.m_startTick;
 	}
 }
 

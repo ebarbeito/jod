@@ -11,7 +11,8 @@ void timer_status (jod::Timer &);
 int main (void)
 {
 	char c = '\0';
-	jod::Timer t; // auto srart
+	jod::Timer a(50); // auto start
+	jod::Timer t(a);  // auto start
 
 	do
 	{
@@ -59,6 +60,7 @@ void timer_status (jod::Timer &t)
 {
 	const double div = 1000.;
 	cout << endl
+	     << "\tInterval: " << t.getInterval () << endl
 	     << "\tIs running: " << (t.running () ? "yes" : "no") << endl
 	     << "\tElapsed time: " << fixed << setprecision(3) << t.elapsed () / div
 	     << " s." << endl << endl;
