@@ -39,6 +39,12 @@ Item::Item (int x, int y, zorder_t z, item_t type) : Sprite (x, y, z)
 	delete img;
 }
 
+item_t
+Item::getType (void) const
+{
+	return m_type;
+}
+
 std::string *
 Item::imgType (item_t type) const
 {

@@ -36,6 +36,8 @@ class Item : public Sprite
 public:
 	Item (int x, int y, zorder_t z = Z_BASE, item_t type = NO_ITEM);
 
+	item_t getType (void) const;
+
 private:
 	//! Item type that identifies this object.
 	item_t m_type;

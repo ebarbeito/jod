@@ -29,6 +29,9 @@
 #include "playstate_t.h"
 #include "player.h"
 
+//! x-position limit where items can reach before they are deleted
+#define PLAY_LIMIT 52
+
 // TODO: hardcoded value, put it config file
 #define PLAYSTATE "data/image/playstate.png"
 

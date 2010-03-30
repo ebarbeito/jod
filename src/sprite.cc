@@ -36,6 +36,12 @@ Sprite::getImg (void) const
 	return m_img.get ();
 }
 
+double
+Sprite::getAngle (void) const
+{
+	return m_angle;
+}
+
 int
 Sprite::getX (void) const
 {

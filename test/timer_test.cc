@@ -40,13 +40,13 @@ void showopts (void)
 	cout << "Test class Timer;" << endl
 	     << "-----------------" << endl << endl
 	     << "Choose opt:"       << endl
-		 << "[c] Continue."     << endl
+	     << "[c] Continue."     << endl
 	     << "[s] Start time."   << endl
-		 << "[p] Pause time."   << endl
-		 << "[r] Resume time."  << endl
+	     << "[p] Pause time."   << endl
+	     << "[r] Resume time."  << endl
 	     << "[u] Update time."  << endl
 	     << "[q] Quit."         << endl
-		 << "> ";
+	     << "> ";
 }
 
 char getopt (void)

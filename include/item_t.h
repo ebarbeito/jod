@@ -30,7 +30,7 @@ namespace jod
 enum item_t
 {
 	NO_ITEM,   //!< Not specified item. Default value for new undefined items.
-	FLOOR_1,   //!< Default, white and thin floor. You can walk on it.
+//	FLOOR_1,   //!< Default, white and thin floor. You can walk on it.
 	FLOOR_2,   //!< Harmful, black and deep floor. You can't walk on it.
 	BLOCK_SQR, //!< Square block. You can walk on it.
 	BLOCK_TRI, //!< Triangular block. You can't touch it.

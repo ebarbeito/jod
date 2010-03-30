@@ -35,7 +35,7 @@ public:
 
 	Image * getImg (void) const;
 
-	double getAngle (void) const { return m_angle; }
+	double getAngle (void) const;
 	
 	int getX (void) const;
 	
